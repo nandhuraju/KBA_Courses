@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import img1 from "../assets/images/rp.png";
 import { Link, Navigate, useLoaderData, useNavigate, useParams } from "react-router-dom";
+import { userTypeLoader } from "./LoginPage";
 
 const CoursePage = () => {
   // const [course, setCourses] = useState(null);
@@ -24,6 +25,8 @@ const CoursePage = () => {
   const course = useLoaderData();
   const {id} =useParams()
   const navigate= useNavigate()
+  const userType= userTypeLoader()
+
   const deleteCourse =async () => {
     const confirm = window.confirm('delete?')
     if (!confirm) return;
@@ -100,12 +103,16 @@ const CoursePage = () => {
           </div>
         </div>
         <div className="flex flex-row justify-end gap-4 mr-[205px] ">
+         { userType=='admin' &&
+         <>
           <Link to={`/edit-course/${id}`} className="flex bg-blue-500 hover:bg-blue-600 text-white font-bold  rounded-full h-10 w-32 focus:outline-none focus:shadow-outline justify-center items-center">
             Edit Course
           </Link>
           <a onClick={()=> deleteCourse(id)} className="flex bg-red-500 hover:bg-red-600 text-white font-bold  rounded-full h-10 w-32 focus:outline-none focus:shadow-outline  justify-center items-center">
             Remove Course
           </a>
+         </>}
+         
         </div>
       </div>
     </div>

@@ -1,6 +1,7 @@
 
 import { Link } from 'react-router-dom'
 import logo from '../assets/images/kbalogo.png'
+import Logout from './Logout'
 const Navbar= ()=>{
     return(
         <>
@@ -17,6 +18,8 @@ const Navbar= ()=>{
           <Link to="/courses" className='ml-20'>Courses</Link>
           <Link to="/contactus" className='ml-20'>Contact Us</Link>
           <Link to="/addcourse" className='ml-20'>Add Course</Link>
+          <Logout/>
+
         </div>
       </div>
         
