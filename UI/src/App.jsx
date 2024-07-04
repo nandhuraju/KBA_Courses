@@ -12,6 +12,8 @@ import NotFoundPage from "./pages/NotFoundPage"
 import Formcontact from "./components/Formcontact"
 import Contactus from "./pages/Contactus"
 import Addcourse from "./pages/Addcourse"
+import SignupPage from "./pages/SignupPage"
+import LoginPage from "./pages/LoginPage"
 import CoursePage, { courseLoader } from "./pages/CoursePage"
 import EditCoursePage from "./pages/EditCoursePage"
 
@@ -20,9 +22,13 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
+      <Route path="/" element={<LoginPage/>}/>
+      <Route path="/signup" element={<SignupPage/>}/>
+
+    
       <Route path="/" element={<MainLayout/>}>
         
-      <Route path="/" element={<Homepage/>}/>
+      <Route path="/home" element={<Homepage/>}/>
       <Route path="/courses" element={<Courses/>}/>
 
       <Route path="/notfoundpage" element={<NotFoundPage/>}/>
